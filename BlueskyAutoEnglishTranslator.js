@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         Blueskyの英語を自動的に翻訳
 // @namespace    @lamrongol
-// @version      0.1
-// @description  Blueskyの英語を自動翻訳。[にがうりさんのBlueskyに翻訳ボタンを追加するスクリプト](https://greasyfork.org/ja/scripts/467069-blueskytranslatebutton)を元にしました。（日本語文字が含まれてないポストを自動で翻訳。ただし英語以外は翻訳できない）。翻訳リクエストは間隔を置いてするつもりだったが、sleep()がうまくいかない。
+// @version      0.1.4
+// @description  Blueskyの日本語文字が含まれてないポストを自動で翻訳。ただし英語以外は翻訳できない。
 // @author       Laml🍞
 // @match        https://bsky.app/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=bsky.app
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js
+// @license MIT
 // @grant        none
 // ==/UserScript==
 
@@ -17,7 +18,7 @@
     const sourceLang = "en";
     const targetLang = "ja";
 
-    const jaRe = /[\p{sc=Hiragana}\p{sc=Katakana}\p{sc=Han}]/u
+    const jaRe = /[\p{Script_Extensions=Hiragana}\p{Script_Extensions=Katakana}\p{Script_Extensions=Han}]/u
 
     const postTextCSS = ".css-175oi2r > .css-175oi2r.r-1awozwy.r-18u37iz.r-1w6e6rj > .css-1rynq56";
     //const quotePostTextCSS;
